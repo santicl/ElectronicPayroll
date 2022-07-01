@@ -1,24 +1,24 @@
-export const cesantias = (salary, daysWork) => {
+const cesantias = (salary, daysWork) => {
     let cesantias = (salary * daysWork) / 360;
     return cesantias;
 }
 
-export const cesantiasInteres = (cesantias, daysWork) => {
+const cesantiasInteres = (cesantias, daysWork) => {
     let cesantiasInteres = (cesantias * daysWork * 0.12) / 360;
     return cesantiasInteres;
 }
 
-export const primaServices = (salary, daysWorkInSemester) => {
+const primaServices = (salary, daysWorkInSemester) => {
     let primaServices = (salary * daysWorkInSemester) / 360;
     return primaServices;
 }
 
-export const vacations = (salary, daysWork) => {
+const vacations = (salary, daysWork) => {
     let vacations = (salary * daysWork) / 720;
     return vacations;
 }
 
-export const hoursExLigth = (valueHourPerDay) => {
+const hoursExLigth = (valueHourPerDay) => {
     if (valueHourPerDay == 0) {
         return 0;
     } else {
@@ -27,7 +27,7 @@ export const hoursExLigth = (valueHourPerDay) => {
     }
 }
 
-export const hourExNight = (valueHourPerDay) => {
+const hourExNight = (valueHourPerDay) => {
     if (valueHourPerDay == 0) {
         return 0;
     } else {
@@ -36,12 +36,12 @@ export const hourExNight = (valueHourPerDay) => {
     }
 }
 
-export const hourExDomiOrFestDiurna = (valueHourPerDay) => {
+const hourExDomiOrFestDiurna = (valueHourPerDay) => {
     let hoursPerDay = valueHourPerDay * 1.75;
     return hoursPerDay;
 }
 
-export const hourExDomiOrFestNocturna = (valueHourPerDay) => {
+const hourExDomiOrFestNocturna = (valueHourPerDay) => {
     let hoursPerDay = valueHourPerDay * 2.5;
     return hoursPerDay;
 }
@@ -68,14 +68,12 @@ export const getNumberMonth = (data, day) => {
     }
 }
 
-export const popup = (el) => {
+const popup = (el) => {
     let employed = JSON.parse(localStorage.getItem('user'));
     employed = employed.employed
     let data;
     for (let i = 0; i < employed.length; i++) {
-        if (employed[i].doc === el.id) {
-            data = employed[i];
-        }
+        employed[i].doc === el.id ? data = employed[i] : data = data;
     }
     return data;
 }
@@ -121,10 +119,7 @@ const settlePayroll = (dataHours, el) => {
     employed = employed.employed
     let data;
     for (let i = 0; i < employed.length; i++) {
-        console.log(employed[i].doc, el.id);
-        if (employed[i].doc === el.id) {
-            data = employed[i];
-        }
+        employed[i].doc === el.id ? data = employed[i] : data = data;
     }
     let salary = parseInt(data.salary);
     let daysWork = dataHours.daysWork;
