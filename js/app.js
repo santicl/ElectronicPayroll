@@ -1,9 +1,9 @@
-import { getMonths, getDaysInMonth, dataInfo, arrayElementsByBtn } from "./components/components.js";
+import { getMonths, getDaysInMonth, dataInfo, arrayElementsByBtn, popup } from "./components/components.js";
 
 //let user = {
-    //username: 'peter.com',
-    //password: 'prueba123',
-    //employed: []
+//username: 'peter.com',
+//password: 'prueba123',
+//employed: []
 //}
 
 let dateDaysInYear = [
@@ -21,23 +21,22 @@ let dateDaysInYear = [
     [8]
 ];
 
-console.log(dataInfo);
-console.log(getDaysInMonth(getMonths(), dateDaysInYear));
+//console.log(dataInfo);
+//console.log(getDaysInMonth(getMonths(), dateDaysInYear));
 
 document.getElementById('save').addEventListener('click', (e) => {
     e.preventDefault();
     let addEmployed = JSON.parse(localStorage.getItem('user'));
 
-    let name = document.getElementById('name').value;
-    let lastName = document.getElementById('lastName').value;
-    let doc = document.getElementById('cedula').value;
-    let phone = document.getElementById('phone').value;
-    let eps = document.getElementById('eps').value;
-    let cargo = document.getElementById('cargo').value;
-    let typeTurno = document.getElementById('typeTurno').value;
-    let salary = document.getElementById('salary').value;
-
-    let employed = {
+    let name = document.getElementById('name').value,
+        lastName = document.getElementById('lastName').value,
+        doc = document.getElementById('cedula').value,
+        phone = document.getElementById('phone').value,
+        eps = document.getElementById('eps').value,
+        cargo = document.getElementById('cargo').value,
+        typeTurno = document.getElementById('typeTurno').value,
+        salary = document.getElementById('salary').value,
+        employed = {
         name,
         lastName,
         doc,
@@ -50,10 +49,9 @@ document.getElementById('save').addEventListener('click', (e) => {
         dayFest: 0,
         dayRecargo: 0,
         day: 0
-    }
+    };
 
     addEmployed.employed.push(employed);
-    console.log(addEmployed.employed);
     localStorage.setItem('user', JSON.stringify(addEmployed));
     window.location.href = 'index.html';
     getEmployed();
@@ -94,13 +92,9 @@ const configPopup = () => {
     }
 
     arrayElementsByBtn(data);
-
-}
-
-const saveData = () => {
-    savelist();
 }
 
 window.onload = configPopup;
+
 
 getEmployed();
