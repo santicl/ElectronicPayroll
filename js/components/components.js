@@ -101,15 +101,10 @@ const payroll = (name, el) => {
         let daysWorkFest = document.getElementById('daysWorkFest').value;
         let hourE = document.getElementById('hourE').value;
 
-        if (daysWork === '') {
-            daysWork = 0;
-        }
-        if (daysWorkFest === '') {
-            daysWorkFest = 0;
-        }
-        if (hourE === '') {
-            hourE = 0;
-        }
+        daysWork === '' ? daysWork = 0 : daysWork = daysWork;
+        daysWorkFest === '' ? daysWorkFest = 0 : daysWorkFest = daysWorkFest;
+        hourE === '' ? hourE = 0 : hourE = hourE;
+
         let dataHours = {
             daysWork,
             daysWorkFest,
